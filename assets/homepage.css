@@ -1,0 +1,706 @@
+.homepage-container {
+  max-height: 100vh;
+  max-width: 100vw;
+  padding: 20px;
+  height: 100vh;
+  overflow: hidden;
+  /* background:url('home-background.png');
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat; */
+}
+
+.homepage-wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.homepage-logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage-logo:before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+}
+
+.homepage-logo:after {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+}
+
+.logo-svg {
+  width: 90px;
+  padding: 0 20px;
+}
+
+.logo-svg path{
+  scale: 2;
+  stroke-width: 0.7px;
+}
+
+.border-name {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+}
+
+.border-name span {
+  color: #FFF;
+  text-align: center;
+  text-shadow: 0px 16px 31.299999237060547px rgba(0, 0, 0, 0.45);
+  font-family: Cardo;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0 20px;
+}
+
+.border-name:before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+}
+
+.border-name:after {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+}
+
+.border-left {
+  position: absolute;
+  width: 1px;
+  background-color: #fff;
+  height: calc(100% - 67px);
+  top: 33px;
+  left: 0;
+  
+}
+
+.border-right {
+  position: absolute;
+  width: 1px;
+  background-color: #fff;
+  height: calc(100% - 67px);
+  top: 33px;
+  right: 0;
+}
+
+.enter-button {
+  color: #fff;
+    padding: 0px;
+    border: 1px solid #fff;
+    text-transform: uppercase;
+    font-family: Cardo;
+    height: 40px;
+    width: 260px;
+    text-align: center;
+    background: transparent;
+  font-size: 14px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#enter-gallery {
+  margin-right: 10px;
+}
+
+.enter-button:hover {
+  color: #000;
+  background-color: #fff;
+  transition: all 0.3s ease-in;
+}
+
+.enter-button:visited {
+  color: #fff;
+}
+
+ .enter-button:visited:hover{
+  color: #000;
+}
+
+.template-index .section{
+  overflow-y: hidden;
+  height: 100vh;
+}
+
+.template-index .section::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+  
+.home-gallery-wrapper {
+  background-image: url(https://cdn.shopify.com/s/files/1/0054/4492/7601/files/wall-concrete.png?v=1735949804);
+  background-size: cover;
+  box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.8);
+  min-height: 100vh;
+    height: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: fit-content;
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.gallery-frame-group {
+  display: flex;
+    max-height: 90vh;
+}
+
+.gallery-frame-container {
+  position: relative;
+      display: flex;
+   justify-content: center;
+}
+
+.gallery-frame-container.isCentered {
+  top: 100px;
+  z-index: 2;
+}
+
+.gallery-frame {
+  position: relative;
+  background: black;
+  box-shadow: 0 20px 15px -3px rgba(0, 0, 0, 0.8);
+  height: 450px;
+  width: 300px;
+    /* min-height: 450px; */
+  display: block;
+}
+
+.gallery-frame.small {
+  height: 350px;
+  width: 275px;
+    /* min-height: 350px; */
+}
+
+.gallery-padding {
+     position: absolute;
+  background: #EDE9E3;
+   height: calc(100% - 10px);
+    width: calc(100% - 10px);
+    top: 5px;
+    left: 5px;
+}
+
+.gallery-mat {
+    position: absolute;
+  background: white;
+  top: 12px;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5) inset;
+}
+
+.gallery-art {
+      position: absolute;
+    top: 3px;
+    left: 3px;
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
+}
+
+.gallery-art img{
+      height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.gallery-tag {
+  max-width: 250px;
+    display: block;
+    padding: 5px 10px;
+    background-color: #ececec;
+    margin-top: 30px;
+  box-shadow: 0px 3px 3px 2px rgb(0,0,0,0.25);
+}
+
+.gallery-title, .gallery-price {
+      color: #000;
+    margin: 0;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.gallery-title {
+  font-weight: 600;
+}
+
+.frame-top {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-frame-group.centered .frame-top {
+  background-image: url(https://cdn.shopify.com/s/files/1/0054/4492/7601/files/frame-concrete.png?v=1735949804);
+  background-size: cover;
+  width: 100%;
+}
+
+.gallery-frame-group.centered .frame-wrapper {
+  padding: 70px 200px;
+    width: 100%;
+  max-width: 800px;
+   z-index: 2;
+    display: flex;
+    flex-direction: column;
+      border: 1px solid #222;
+      box-shadow: 0 9px 0px 0px rgba(255, 255, 255, 0), 0 -9px 0px 0px rgba(255, 255, 255, 0), 12px 0 25px -4px rgba(0, 0, 0, 0.8), -12px 0 25px -4px rgba(0, 0, 0, 0.8);
+}
+
+.gallery-frame-group.two-items .gallery-frame-wrapper {
+    width: 1240px;
+    display: flex;
+    justify-content: center;
+      background-image: url(https://cdn.shopify.com/s/files/1/0054/4492/7601/files/frame-concrete.png?v=1735949804);
+   background-size: cover;
+top: 100px;
+  position: relative;
+}
+
+.gallery-frame-group.two-items .frame-wrapper {
+  padding: 80px 100px 50px 100px;
+    display: flex;
+    flex-direction: column;
+  z-index: 2;
+}
+.gallery-frame-group.with-button .gallery-frame-wrapper{
+      width: 1100px;
+    display: flex;
+    justify-content: center;
+      background-image: url(https://cdn.shopify.com/s/files/1/0054/4492/7601/files/frame-concrete.png?v=1735949804);
+   background-size: cover;
+  position: relative;
+  top: 100px;
+}
+
+.gallery-frame-group.with-button .frame-wrapper {
+      padding: 80px 100px 50px;
+    display: flex;
+    flex-direction: column;
+   z-index: 2;
+}
+
+.overhead-light.bottom {
+  position: absolute;
+  width: 250px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.gallery-frame-group.two-items .overhead-light.bottom, .gallery-frame-group.with-button .overhead-light.bottom {
+    bottom: -260px;
+}
+
+.gallery-frame-group.centered .overhead-light.bottom {
+    bottom: -220px;
+}
+
+.overhead-light.top {
+  position: absolute;
+  top: -200px;
+  z-index: 2;
+    width: 350px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.overhead-light.to-blink {
+  opacity: 0;
+    visibility: hidden;
+  transition: all .3s ease;
+}
+
+.overhead-light.to-blink.show {
+  opacity: 1;
+    visibility: visible;
+}
+
+.overhead-light img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.gallery-frame-reflection-container {
+  position: absolute;
+}
+
+.gallery-frame-reflection-container.large {
+    perspective: 1500px;
+    width: 300px;
+    height: 450px;
+    margin: auto;
+    top: -450px;
+}
+
+.gallery-frame-reflection-container.small {
+    perspective: 1050px;
+    width: 275px;
+    height: 350px;
+    margin: auto;
+    top: -370px;
+}
+
+.gallery-frame-reflection {
+    position: relative;
+    opacity: .5;
+    transition: 0.3s;
+       transform-origin: 0 100% 0;
+}
+
+.gallery-frame-reflection.large {
+     width: 300px;
+    height: 450px;
+     transform: rotateX(-35deg);
+}
+
+.gallery-frame-reflection.small {
+     width: 300px;
+    height: 400px;
+     transform: rotateX(-35deg);
+}
+
+.gallery-frame-reflection-container .gallery-frame {
+  transform: scale(-.85);
+  filter: blur(4px);
+}
+
+.gallery-button {
+      height: fit-content;
+    padding: 5px 20px;
+    border: 2px solid #000;
+    color: #000;
+    font-weight: 600;
+  background-color: transparent;
+}
+
+.gallery-button.right {
+    margin: auto 0px auto 100px;
+}
+
+.gallery-button.left {
+    margin: auto 100px auto 0px;
+}
+
+.gallery-button:hover {
+    background-color: #000;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.home-gallery-entrance {
+  position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 3;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.home-gallery-entrance.zoom-in-and-fade-out{
+   animation: zoom-in-fade-out 1s cubic-bezier(1,0,.75,.9) 0.3s forwards;
+}
+
+.gallery-backdrop {
+      position: absolute;
+    height: 100vh;
+        width: 100vw;
+    max-width: 1200px;
+    left: 50%;
+    transform: translateX(-50%);
+  background-image: url(https://cdn.shopify.com/s/files/1/0054/4492/7601/files/home-gallery-wall.png?v=1735949804);
+  background-size: cover;
+    background-position: center;
+}
+
+.gallery-arch {
+      position: absolute;
+    height: 100vh;
+    width: 100vw;
+  background-image: url(https://cdn.shopify.com/s/files/1/0054/4492/7601/files/WDW_landing_page.png?v=1735949804);
+  background-size: cover;
+    background-position: center;
+     left: 50%;
+    transform: translateX(-50%);
+}
+
+.home-gallery-entrance-image {
+  filter: brightness(70%);
+}
+
+.gallery-backdrop-frames {
+  position: absolute;
+    display: flex;
+  width: 100%;
+    max-width: 570px;
+    height: 100vh;
+    justify-content: space-between;
+    left: 50%;
+    transform: translateX(-50.5%);
+    align-items: center;
+    margin-top: -6%;
+}
+
+  
+#home-gallery-left-image .gallery-frame.small, #home-gallery-right-image .gallery-frame.small {
+      height: 175px;
+    width: 120px;
+}
+
+.home-gallery-entrance-image .gallery-frame-reflection-container, .home-gallery-entrance-image .overhead-light, .home-gallery-entrance-image .gallery-tag {
+  display: none;
+}
+
+.home-gallery-entrance-image .gallery-frame.small {
+  width: 150px;
+  height: 200px;
+   box-shadow: 0 20px 15px -3px rgba(0, 0, 0, 0.4);
+}
+
+.entrance-buttons {
+  display: flex;
+    top: 63%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 700px;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+}
+
+.hide-on-entrance {
+  opacity: 0;
+  visibility: hidden;
+  z-index:-1;
+}
+
+.show-on-entrance {
+  animation: fade-in 1s ease 0s forwards;
+}
+
+.show-gallery {
+  opacity: 1;
+  visibility: visible;
+}
+
+.entrance-logo {
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  height: 100px;
+  width: 30px;
+}
+
+.entrance-logo .logo-svg {
+    height: 100px;
+    padding: 0px;
+}
+
+.entrance-logo .logo-svg path {
+    scale: 3;
+    stroke-width: 0.5px;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+    animation: draw 3s linear;
+}
+
+.home-gallery-nav {
+  visibility: hidden;
+}
+
+.home-gallery-nav.show-gallery {
+  visibility: visible;
+}
+
+.home-gallery-nav.fixed-header-nav{
+  border: 1px solid #fff;
+}
+
+.home-gallery-nav.fixed-header-nav .menu ul li a, .home-gallery-nav .menu-open-button, .home-gallery-nav .mobile-shop {
+  color: #fff;
+}
+
+.home-gallery-nav.fixed-header-nav .menu .logo svg path {
+  stroke: #fff;
+}
+
+.home-gallery-nav .cart-count {
+  background-color: #fff;
+    color: #000;
+}
+
+@media (max-width: 968px) {
+  .border-name span {
+    font-size: 40px;
+  }
+
+  .border-left, .border-right {
+    height: calc(100% - 57px);
+  }
+}
+
+@media (max-width: 767px) {
+  .border-name span {
+    font-size: 24px;
+  }
+
+   .border-left, .border-right {
+    height: calc(100% - 47px);
+  }
+
+  .homepage-wrapper {
+    height: calc(100% - 100px);
+  }
+  
+  .gallery-frame-group.centered .frame-wrapper {
+    padding: 50px 70px;
+    max-width: 500px;
+  }
+
+  .gallery-frame-group.two-items .gallery-frame-wrapper {
+      max-width: 1000px;
+    top: 70px;
+  }
+
+  .gallery-frame-group.two-items .frame-wrapper {
+    padding: 50px 70px 50px;
+  }
+
+  .gallery-frame-group.with-button .gallery-frame-wrapper {
+    max-width: 800px;
+    top: 70px;
+  }
+
+  .gallery-button.right, .gallery-button.left{
+  margin: auto 0;
+}
+
+  .gallery-frame-container.isCentered {
+  top: 70px;
+}
+  .gallery-title, .gallery-price{
+    font-size: 11px;
+  }
+
+  .gallery-frame {
+    height: 400px;
+  }
+
+  .gallery-frame-reflection-container.large {
+    top:-400px;
+  }
+
+  #home-gallery-left-image .gallery-frame.small, #home-gallery-right-image .gallery-frame.small {
+      height: 125px;
+    width: 80px;
+}
+
+.home-gallery-entrance-image .gallery-frame.small {
+  width: 120px;
+  height: 150px;
+}
+
+  .gallery-backdrop-frames {
+    max-width: 450px;
+    width: 100%;
+    margin-top: -12%;
+        transform: translate(-51%);
+}
+
+  .gallery-backdrop {
+    width: 110vw;
+  }
+
+  .gallery-arch {
+    width: 110vw;
+  }
+
+  .entrance-buttons{
+    width: 90%;
+   flex-direction: column;
+    top: 82%;
+  }
+
+  .enter-button {
+    height: 40px;
+    font-size: 12px;
+    width: 200px;
+    padding: 0;
+  }
+
+  #enter-gallery {
+  margin-right: 0px;
+    margin-bottom: 10px;
+}
+}
+
+@media (max-width: 450px) {
+  .border-name span {
+    font-size: 18px;
+  }
+
+  .border-left, .border-right {
+    height: calc(100% - 44px);
+  }
+}
+
+@media (max-width: 376px) {
+ .gallery-backdrop-frames {
+    max-width: 375px;
+}
+}
+
+@media (max-width: 350px) {
+    #home-gallery-left-image .gallery-frame.small, #home-gallery-right-image .gallery-frame.small {
+      height: 95px;
+    width: 60px;
+}
+
+.home-gallery-entrance-image .gallery-frame.small {
+  width: 90px;
+  height: 120px;
+}
+}
+
+@keyframes zoom-in-fade-out {
+  from {scale: 1; opacity: 100%;}
+  to {scale: 10; opacity: 0%;}
+}
+
+@keyframes fade-in {
+  from {scale: 0.9; opacity: 0%}
+  to {scale: 1; opacity: 100%}
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 240;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

@@ -1,0 +1,82 @@
+<script src="{{ 'homepage.js' | asset_url }}" defer="defer"></script>
+
+{%  assign products = settings.gallery_product_list | reverse | reverse %}
+
+<div class="home-gallery-entrance">
+  <div class="entrance-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="83" height="65" fill="none" class="logo-svg">
+          <path d="M1.25 16.888C1.25 11.546 2.66805 6.30594 5.35093 1.70017C8.03382 6.30594 9.45187 11.546 9.45187 16.888V24.7736H1.25V16.888Z" stroke="#fff" stroke-width="1.5"/>
+        </svg>
+      </div>
+  <div class="gallery-backdrop hide-on-entrance">
+    <div class="gallery-backdrop-frames">
+      {% render 'home-gallery-frame', item: products[1], size: 'small', isGalleryEntrance: true, customClasses: "home-gallery-entrance-image", id: "home-gallery-left-image"  %}
+      {% render 'home-gallery-frame', item: products[0], size: 'small', isGalleryEntrance: true, customClasses: "home-gallery-entrance-image", id: "home-gallery-center-image"  %}
+      {% render 'home-gallery-frame', item: products[2], size: 'small', isGalleryEntrance: true, customClasses: "home-gallery-entrance-image", id: "home-gallery-right-image"  %}
+    </div>
+  </div>
+  <div class="gallery-arch hide-on-entrance"></div>
+  <div class="homepage-container">
+  <div class="homepage-wrapper">
+    <div class="border-right"></div>
+    <div class="border-left"></div>
+    <div class="border-logo">
+      <div class="homepage-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="83" height="65" fill="none" class="logo-svg">
+          <path d="M1.25 16.888C1.25 11.546 2.66805 6.30594 5.35093 1.70017C8.03382 6.30594 9.45187 11.546 9.45187 16.888V24.7736H1.25V16.888Z" stroke="#fff" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+    <div class="border-name"><span>Who decides war</span></div>
+    <div class="entrance-buttons hide-on-entrance">
+      <button id="enter-gallery" class="enter-button">Enter the gallery</button>
+      <a class="enter-button shop" href="/collections">Shop the collection</a>
+    </div>
+  </div>
+</div>
+</div>
+<div id="home-art-gallery" class="home-gallery-wrapper">
+  <div class="gallery-frame-group with-button">
+    <div class="gallery-frame-wrapper">
+      <a href="/collections" class="gallery-button left">VIEW THE FULL SHOP</a>
+     {% render 'home-gallery-frame', item: products[8], size: 'small', hasButton: true  %}
+    </div>
+  </div>
+  <div class="gallery-frame-group centered">
+   {% render 'home-gallery-frame', item: products[6], size: 'large', isCentered: true  %}
+  </div>
+  <div class="gallery-frame-group two-items">
+    <div class="gallery-frame-wrapper">
+      {% render 'home-gallery-frame', item: products[5], size: 'small'  %}
+      {% render 'home-gallery-frame', item: products[4], size: 'small'  %}
+    </div>
+  </div>
+  <div class="gallery-frame-group centered" id="center-gallery-item">
+   {% render 'home-gallery-frame', item: products[0], size: 'large', isCentered: true  %}
+  </div>
+  <div class="gallery-frame-group two-items">
+    <div class="gallery-frame-wrapper">
+      {% render 'home-gallery-frame', item: products[2], size: 'small'  %}
+      {% render 'home-gallery-frame', item: products[1], size: 'small'  %}
+    </div>
+  </div>
+  <div class="gallery-frame-group centered">
+   {% render 'home-gallery-frame', item: products[3], size: 'large', isCentered: true  %}
+  </div>
+  <div class="gallery-frame-group with-button">
+    <div class="gallery-frame-wrapper">
+      {% render 'home-gallery-frame', item: products[7], size: 'small', hasButton: true  %}
+      <a href="/collections" class="gallery-button right">VIEW THE FULL SHOP</a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Home Gallery",
+      "tag": "section",
+  "class": "section",
+  "settings": [
+  ]
+  }
+{% endschema %}

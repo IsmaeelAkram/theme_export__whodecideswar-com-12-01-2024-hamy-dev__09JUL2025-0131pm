@@ -1,0 +1,23 @@
+{% layout none %}
+{% paginate search.results by 10 %}
+ {% capture output %}
+ {%- comment %}<locksmith:6045>{% endcomment -%}
+   {%- assign locksmith_ca78_forloop__size = 0 %}{% for result in search.results %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: result, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_ca78_forloop__size = locksmith_ca78_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_ca78_forloop__index = nil -%}
+ {%- comment %}</locksmith:6045>{% endcomment -%}
+ {% for result in search.results %}
+        {%- comment %}<locksmith:661c>{% endcomment -%}
+          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: result, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_ca78_forloop__index == nil %}{% assign locksmith_ca78_forloop__index = 1 %}{% assign locksmith_ca78_forloop__index0 = 0 %}{% else %}{% assign locksmith_ca78_forloop__index = locksmith_ca78_forloop__index | plus: 1 %}{% assign locksmith_ca78_forloop__index0 = locksmith_ca78_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_ca78_forloop__index == 1 %}{% assign locksmith_ca78_forloop__first = true %}{% else %}{% assign locksmith_ca78_forloop__first = false %}{% endif %}{% if locksmith_ca78_forloop__index == locksmith_ca78_forloop__size %}{% assign locksmith_ca78_forloop__last = true %}{% else %}{% assign locksmith_ca78_forloop__last = false %}{% endif %}{% assign locksmith_ca78_forloop__rindex = locksmith_ca78_forloop__size | minus: locksmith_ca78_forloop__index | minus: 1 %}{% assign locksmith_ca78_forloop__rindex0 = locksmith_ca78_forloop__size | minus: locksmith_ca78_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:661c>{% endcomment -%}
+        {% assign resultURL = result.url %}
+        {% assign thumbURL = result.images[0] | product_img_url: 'thumb' %}
+
+        {"title":"{{ result.title | replace: '\\', '\\\\' | replace: '"', '\\"' | replace:  '/','\\/' }}",
+           "url":"{{ result.url   | replace: '\\', '\\\\' | replace: '"', '\\"' | replace:  '/','\\/' }}",
+         "thumb":"{{ thumbURL     | replace: '\\', '\\\\' | replace: '"', '\\"' | replace:  '/','\\/' }}",
+            "id":{{result.id}} }{% unless locksmith_ca78_forloop__last %},{% endunless %}
+    {% endfor %}
+{% endcapture %}
+
+{% comment %} Output the json object {% endcomment %}
+{"results_total":{{paginate.items}},"results":[{{ output | strip_newlines }}]}
+{% endpaginate %}

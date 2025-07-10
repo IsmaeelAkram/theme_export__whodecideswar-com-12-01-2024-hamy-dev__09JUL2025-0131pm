@@ -1,0 +1,67 @@
+<nav class="fixed-header-nav {% if template == 'index' %}home-gallery-nav{% endif %}">
+    <div class="menu desktop">
+         <div class="menu-icon">
+      <i class="fa fa-bars fa-2x"></i>
+    </div>
+    <div class="logo">
+        <a href="/">
+          <svg width="11" height="26" viewBox="0 0 11 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.25 16.888C1.25 11.546 2.66805 6.30594 5.35093 1.70017C8.03382 6.30594 9.45187 11.546 9.45187 16.888V24.7736H1.25V16.888Z" stroke="#262626" stroke-width="1.5"/>
+</svg>
+
+        </a>
+    </div>
+      <ul class="nav">
+        <li><a href="/collections">Shop</a></li>
+        <li><a href="/pages/collections">Collections</a></li>
+        <li><a href="/pages/shipping-and-returns">Shipping & Returns</a></li>
+        <li><a href="/pages/faq">FAQ</a></li>
+        <li><a href="/pages/contact">Contact</a></li>
+        <li>
+          <div class="cart">
+            <a href="/cart" class="cart-display">
+                <span class="text" id="cartCount">Bag</span>
+                <span class="cart-count" id="cartCount">{{cart.item_count}}</span>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  <div class="menu mobile">
+      <div class="mobile-nav-controls">
+        <a class="mobile-shop" href="/collections">Shop</a>
+        <div class="logo">
+            <a href="/">
+              <svg width="11" height="26" viewBox="0 0 11 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.25 16.888C1.25 11.546 2.66805 6.30594 5.35093 1.70017C8.03382 6.30594 9.45187 11.546 9.45187 16.888V24.7736H1.25V16.888Z" stroke="#262626" stroke-width="1.5"/>
+              </svg>
+            </a>
+        </div>
+        <button class="menu-open-button" id="menu-open">Menu</button>
+      </div>
+    </div>
+  </nav>
+<div class="menu-pane hidden" id="menu-pane">
+  <div class="menu-nav-groups">
+      <ul class="mobile-nav nav">
+        <li><a href="/pages/shipping-and-returns">Shipping & Returns</a></li>
+        <li><a href="/pages/faq">FAQ</a></li>
+        <li><a href="/pages/terms">Terms of use</a></li>
+        <li><a href="/pages/privacy-policy">Privacy Policy</a></li>
+      </ul>
+      <ul class="mobile-nav nav">
+          <li><a href="/">Gallery</a></li>
+        <li><a href="/pages/collections">Collections</a></li>
+          <li><a href="/pages/contact">Contact</a></li>
+          <li>
+            <div class="cart">
+              <a href="/cart" class="cart-display">
+                  <span class="text" id="cartCount">Bag</span>
+                  <span class="cart-count" id="cartCount">{{cart.item_count}}</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+  </div>
+  <button class="menu-close-button" id="menu-close">Close</button>
+</div>

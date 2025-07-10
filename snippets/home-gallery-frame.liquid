@@ -1,0 +1,59 @@
+{% comment %}
+  Renders home gallery product frame
+
+  Accepts:
+  - item: {Object} product object.
+  Usage:
+  {% render 'home-gallery-frame', item: item, size: size, isCentered: false, isGalleryEntrance: false, customClasses: "", id: ""  %}
+{% endcomment %}
+
+{%- if item and item != empty -%}
+
+<div class="gallery-frame-container {% if isCentered == true %}isCentered{% endif %} {{ customClasses }}" id="{{ id }}">
+  <div class="frame-top">
+    <div class="gallery-frame-reflection-container {% if size == 'large' %}large{% else %}small{% endif %}">
+      <div class="gallery-frame-reflection {% if size == 'large' %}large{% else %}small{% endif %}">
+        <div class="gallery-frame {% if size == 'large' %}large{% else %}small{% endif %}">
+          <div class="gallery-padding">
+            <div class="gallery-mat">
+              <div class="gallery-art">
+                 <img src="/cdn/shop/{{ item.featured_image }}">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overhead-light top">
+      <img src="{{ 'overhead-lighting.png' | asset_url }}" />
+    </div>
+    <div class="overhead-light top">
+      <img src="{{ 'overhead-lighting.png' | asset_url }}" />
+    </div>
+    <div class="overhead-light top to-blink">
+      <img src="{{ 'overhead-lighting.png' | asset_url }}" />
+    </div>
+    <div class="frame-wrapper">
+      <a href="{{ item.url }}" class="gallery-frame {% if size == 'large' %}large{% else %}small{% endif %}">
+        <div class="gallery-padding">
+          <div class="gallery-mat">
+            <div class="gallery-art">
+               <img src="/cdn/shop/{{ item.featured_image }}">
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="{{ item.url }}" class="gallery-tag">
+        <p class="gallery-title">{{ item.title }}</p>
+        <p class="gallery-price">{{ item.price | money }}</p>
+      </a>
+    </div>
+  </div>
+  <div class="overhead-light bottom">
+    <img src="{{ 'overhead-lighting-bottom.png' | asset_url }}" />
+  </div>
+  <div class="overhead-light bottom to-blink">
+    <img src="{{ 'overhead-lighting-bottom.png' | asset_url }}" />
+  </div>
+</div>
+{%- endif -%}
