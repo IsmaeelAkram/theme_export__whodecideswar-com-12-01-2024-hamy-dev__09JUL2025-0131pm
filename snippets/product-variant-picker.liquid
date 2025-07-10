@@ -120,3 +120,90 @@
     </div>
   </div>
 </noscript>
+
+<script>
+// Variant picker redirect and reload
+document.addEventListener('DOMContentLoaded', function() {
+  // Get variant data from the JSON script
+  var variantDataScript = document.querySelector('script[type="application/json"]');
+  if (!variantDataScript) return;
+  var variants = [];
+  try {
+    variants = JSON.parse(variantDataScript.textContent);
+  } catch (e) {}
+  if (!variants.length) return;
+
+  // Helper to find variant by selected options
+  function findVariant(selectedOptions) {
+    return variants.find(function(variant) {
+      return variant.options.every(function(opt, idx) {
+        return selectedOptions[idx] === opt;
+      });
+    });
+  }
+
+  // Helper to find variant by ID
+  function getVariantById(id) {
+    return variants.find(function(variant) { return variant.id == id; });
+  }
+
+  // On page load, if ?variant=ID is present, set picker UI to match
+  var urlParams = new URLSearchParams(window.location.search);
+  var variantId = urlParams.get('variant');
+  if (variantId) {
+    var variant = getVariantById(variantId);
+    if (variant) {
+      // Set selects
+      document.querySelectorAll('variant-selects').forEach(function(wrapper) {
+        var selects = Array.from(wrapper.querySelectorAll('select'));
+        variant.options.forEach(function(opt, idx) {
+          if (selects[idx]) {
+            selects[idx].value = opt;
+          }
+        });
+      });
+      // Set radios
+      document.querySelectorAll('variant-radios').forEach(function(wrapper) {
+        var fieldsets = Array.from(wrapper.querySelectorAll('fieldset'));
+        variant.options.forEach(function(opt, idx) {
+          var radios = fieldsets[idx] ? fieldsets[idx].querySelectorAll('input[type="radio"]') : [];
+          radios.forEach(function(radio) {
+            radio.checked = (radio.value === opt);
+          });
+        });
+      });
+    }
+  }
+
+  // For select dropdowns
+  document.querySelectorAll('variant-selects').forEach(function(wrapper) {
+    wrapper.querySelectorAll('select').forEach(function(select) {
+      select.addEventListener('change', function() {
+        var selects = Array.from(wrapper.querySelectorAll('select'));
+        var selectedOptions = selects.map(function(s) { return s.value; });
+        var variant = findVariant(selectedOptions);
+        if (variant && variant.available) {
+          window.location.href = wrapper.dataset.url + '?variant=' + variant.id;
+        }
+      });
+    });
+  });
+
+  // For radio buttons
+  document.querySelectorAll('variant-radios').forEach(function(wrapper) {
+    wrapper.querySelectorAll('input[type="radio"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        var fieldsets = Array.from(wrapper.querySelectorAll('fieldset'));
+        var selectedOptions = fieldsets.map(function(fs) {
+          var checked = fs.querySelector('input[type="radio"]:checked');
+          return checked ? checked.value : null;
+        });
+        var variant = findVariant(selectedOptions);
+        if (variant && variant.available) {
+          window.location.href = wrapper.dataset.url + '?variant=' + variant.id;
+        }
+      });
+    });
+  });
+});
+</script>
