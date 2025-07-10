@@ -89,9 +89,9 @@
         <span>
           <s class="price-item price-item--regular">
             {% if settings.currency_code_enabled %}
-              {{ money_price | money_with_currency }}
+              {{ money_price }}
             {% else %}
-              {{ money_price | money }}
+              {{ money_price }}
             {% endif %}
           </s>
         </span>
