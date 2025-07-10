@@ -89,8 +89,8 @@
                 {{ product.price | money }} - {{ 'products.product.sold_out' | t }}
               {%- else -%}
                 {%- if selected_variant.compare_at_price > selected_variant.price -%}
-                    <span class="sale-price">{{ selected_variant.price | money }}</span>
-                    <span class="original-price">{{ selected_variant.compare_at_price | money }}</span>
+                    <span class="sale-price">{{ selected_variant.compare_at_price | money }}</span>
+                    <span class="original-price">{{ selected_variant.price | money }}</span>
                 {%- else -%}
                     {{ selected_variant.price | money }}
                 {%- endif -%}
